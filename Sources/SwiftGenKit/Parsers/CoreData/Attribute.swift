@@ -14,6 +14,7 @@ extension CoreData {
     public let isOptional: Bool
     public let isTransient: Bool
     public let usesScalarValueType: Bool
+    public let defaultValueString: String?
     public let type: AttributeType
     public let customClassName: String?
     public let typeName: String
@@ -44,6 +45,7 @@ private enum XML {
     static let isOptional = "optional"
     static let isTransient = "transient"
     static let usesScalarValueType = "usesScalarValueType"
+    static let defaultValueString = "defaultValueString"
     static let attributeType = "attributeType"
     static let customClassName = "customClassName"
   }
@@ -67,6 +69,7 @@ extension CoreData.Attribute {
     isOptional = object[XML.Attributes.isOptional].flatMap(Bool.init(from:)) ?? false
     isTransient = object[XML.Attributes.isTransient].flatMap(Bool.init(from:)) ?? false
     usesScalarValueType = object[XML.Attributes.usesScalarValueType].flatMap(Bool.init(from:)) ?? false
+    defaultValueString = object[XML.Attributes.defaultValueString] ?? ""
     type = attributeType
     customClassName = object[XML.Attributes.customClassName]
     typeName = type.typeName(usesScalarValueType: usesScalarValueType, customClassName: customClassName)

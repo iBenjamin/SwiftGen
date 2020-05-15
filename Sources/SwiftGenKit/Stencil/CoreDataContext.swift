@@ -49,6 +49,7 @@ extension CoreData.Parser {
       "isOptional": attribute.isOptional,
       "isTransient": attribute.isTransient,
       "usesScalarValueType": attribute.usesScalarValueType,
+      "defaultValueString": attribute.defaultValueString,
       "type": attribute.type.rawValue,
       "customClassName": attribute.customClassName ?? "",
       "typeName": attribute.typeName,
